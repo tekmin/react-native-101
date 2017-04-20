@@ -13,18 +13,21 @@ import {
   View
 } from 'react-native';
 
+const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+
 export default class ReactNative101 extends Component {
 
   constructor(props) {
     super(props);
 
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.rowData = [
+      'Row 1',
+      'Row 2',
+      'Row 3',
+    ];
+
     this.state = {
-      dataSource: ds.cloneWithRows([
-        'Row 1',
-        'Row 2',
-        'Row 3',
-      ])
+      dataSource: ds.cloneWithRows(this.rowData),
     };
   }
 
