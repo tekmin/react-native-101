@@ -55,7 +55,7 @@ export default class ReactNative101 extends Component {
 
   renderRow(rowData) {
     return (
-      <Text>{rowData.name}</Text>
+      <Text style={styles.name}>{rowData.name}</Text>
     );
   }
 
@@ -85,6 +85,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+  },
+  name: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'black',
   },
 });
 
