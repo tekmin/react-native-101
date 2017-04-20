@@ -31,11 +31,18 @@ export default class ReactNative101 extends Component {
     };
   }
 
+
+  renderRow(rowData) {
+    return (
+      <Text>{rowData.name}</Text>
+    );
+  }
+
   render() {
     return (
       <ListView
         dataSource={this.state.dataSource}
-        renderRow={(rowData) => <Text>{rowData}</Text>}
+        renderRow={this.renderRow}
       />
     );
   }
