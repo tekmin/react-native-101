@@ -12,6 +12,7 @@ import {
   Text,
   View,
   Navigator,
+  TouchableOpacity,
 } from 'react-native';
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -61,12 +62,18 @@ export default class ReactNative101 extends Component {
     // }, 1000);
   }
 
+  onRowPress() {
+
+  }
+
   renderRow(rowData) {
     return (
-      <View style={styles.row}>
-        <Text style={styles.name}>{rowData.name}</Text>
-        <Text style={styles.post}>{rowData.post}</Text>
-      </View>
+      <TouchableOpacity onPress={this.onRowPress}>
+        <View style={styles.row}>
+          <Text style={styles.name}>{rowData.name}</Text>
+          <Text style={styles.post}>{rowData.post}</Text>
+        </View>
+      </TouchableOpacity>
     );
   }
 
@@ -118,6 +125,7 @@ const styles = StyleSheet.create({
   },
   row: {
     padding: 10,
+    backgroundColor: 'lightgray',
   },
   post: {
     color: 'gray',
