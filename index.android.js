@@ -31,6 +31,18 @@ export default class ReactNative101 extends Component {
     };
   }
 
+  componentDidMount() {
+    // setInterval(() => {
+    //   this.rowData.push({
+    //     name: 'ggg',
+    //     post: 'im hacking',
+    //   });
+
+    //   this.setState({
+    //     dataSource: ds.cloneWithRows(this.rowData),
+    //   });
+    // }, 1000);
+  }
 
   renderRow(rowData) {
     return (
