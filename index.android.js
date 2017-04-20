@@ -15,86 +15,30 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+import FeedPage from './FeedPage';
 
 export default class ReactNative101 extends Component {
 
   constructor(props) {
     super(props);
 
-    this.rowData = [
-      {
-        name: 'GY loh',
-        post: 'Im sexy and i know it',
-      },
-      {
-        name: 'gim',
-        post: 'Im muscular',
-      },
-      {
-        name: 'gyong',
-        post: 'Im love crocs',
-      }
-    ];
-
-    this.routes = [
-      { pageName: 'list' },
-      { pageName: 'post' },
-    ];
-
-    this.state = {
-      dataSource: ds.cloneWithRows(this.rowData),
-    };
-
     this.renderScene = this.renderScene.bind(this);
   }
 
-  componentDidMount() {
-    // setInterval(() => {
-    //   this.rowData.push({
-    //     name: 'ggg',
-    //     post: 'im hacking',
-    //   });
-
-    //   this.setState({
-    //     dataSource: ds.cloneWithRows(this.rowData),
-    //   });
-    // }, 1000);
-  }
-
-  onRowPress() {
-
-  }
-
-  renderRow(rowData) {
-    return (
-      <TouchableOpacity onPress={this.onRowPress}>
-        <View style={styles.row}>
-          <Text style={styles.name}>{rowData.name}</Text>
-          <Text style={styles.post}>{rowData.post}</Text>
-        </View>
-      </TouchableOpacity>
-    );
-  }
-
   renderScene(route, navigator) {
-    if(route.pageName === 'list') {
-      return (
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={this.renderRow}
-        />
-      );
-    } else {
+    if(route.pageName === 'post') {
       return null;
     }
+
+    return (
+      <FeedPage navigator={navigator} />
+    );
   }
 
   render() {
     return (
       <Navigator
-        initialRoute={this.routes[0]}
-        initialRouteStack={this.routes}
+        initialRoute={{ pageName: 'list' }}
         renderScene={this.renderScene}
       />
     );
@@ -118,18 +62,6 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
-  name: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: 'black',
-  },
-  row: {
-    padding: 10,
-    backgroundColor: 'lightgray',
-  },
-  post: {
-    color: 'gray',
-  }
 });
 
 AppRegistry.registerComponent('ReactNative101', () => ReactNative101);
