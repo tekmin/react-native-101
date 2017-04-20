@@ -21,9 +21,18 @@ export default class ReactNative101 extends Component {
     super(props);
 
     this.rowData = [
-      'Row 1',
-      'Row 2',
-      'Row 3',
+      {
+        name: 'GY loh',
+        post: 'Im sexy and i know it',
+      },
+      {
+        name: 'gim',
+        post: 'Im muscular',
+      },
+      {
+        name: 'gyong',
+        post: 'Im love crocs',
+      }
     ];
 
     this.state = {
