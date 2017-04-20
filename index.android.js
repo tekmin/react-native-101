@@ -55,7 +55,10 @@ export default class ReactNative101 extends Component {
 
   renderRow(rowData) {
     return (
-      <Text style={styles.name}>{rowData.name}</Text>
+      <View style={styles.row}>
+        <Text style={styles.name}>{rowData.name}</Text>
+        <Text style={styles.post}>{rowData.post}</Text>
+      </View>
     );
   }
 
@@ -91,6 +94,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
   },
+  row: {
+    padding: 10,
+  },
+  post: {
+    color: 'gray',
+  }
 });
 
 AppRegistry.registerComponent('ReactNative101', () => ReactNative101);
