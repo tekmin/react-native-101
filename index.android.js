@@ -10,7 +10,8 @@ import {
   StyleSheet,
   ListView,
   Text,
-  View
+  View,
+  Navigator,
 } from 'react-native';
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -35,9 +36,16 @@ export default class ReactNative101 extends Component {
       }
     ];
 
+    this.routes = [
+      { pageName: 'list' },
+      { pageName: 'post' },
+    ];
+
     this.state = {
       dataSource: ds.cloneWithRows(this.rowData),
     };
+
+    this.renderScene = this.renderScene.bind(this);
   }
 
   componentDidMount() {
@@ -62,11 +70,25 @@ export default class ReactNative101 extends Component {
     );
   }
 
+  renderScene(route, navigator) {
+    if(route.pageName === 'list') {
+      return (
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={this.renderRow}
+        />
+      );
+    } else {
+      return null;
+    }
+  }
+
   render() {
     return (
-      <ListView
-        dataSource={this.state.dataSource}
-        renderRow={this.renderRow}
+      <Navigator
+        initialRoute={this.routes[0]}
+        initialRouteStack={this.routes}
+        renderScene={this.renderScene}
       />
     );
   }
