@@ -29,18 +29,18 @@ export default class FeedPage extends React.Component {
         super(props);
 
         this.rowData = [
-        {
-            name: 'GY loh',
-            post: 'Im sexy and i know it',
-        },
-        {
-            name: 'gim',
-            post: 'Im muscular',
-        },
-        {
-            name: 'gyong',
-            post: 'Im love crocs',
-        }
+            {
+                name: 'GY loh',
+                post: 'Im sexy and i know it',
+            },
+            {
+                name: 'gim',
+                post: 'Im muscular',
+            },
+            {
+                name: 'gyong',
+                post: 'Im love crocs',
+            }
         ];
 
         this.state = {
