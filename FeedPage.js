@@ -74,8 +74,8 @@ export default class FeedPage extends React.Component {
         return (
             <TouchableOpacity onPress={() => this.onRowPress(rowData)}>
                 <View style={styles.row}>
-                <Text style={styles.name}>{rowData.name}</Text>
-                <Text style={styles.post}>{rowData.post}</Text>
+                    <Text style={styles.name}>{rowData.name}</Text>
+                    <Text style={styles.post}>{rowData.post}</Text>
                 </View>
             </TouchableOpacity>
         );

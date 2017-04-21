@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 
 import FeedPage from './FeedPage';
-import PostPage from './PostPage';
+import DetailPage from './DetailPage';
 
 export default class ReactNative101 extends Component {
 
@@ -28,7 +28,7 @@ export default class ReactNative101 extends Component {
 
   renderScene(route, navigator) {
     if(route.pageName === 'post') {
-      return <PostPage rowData={route.rowData} navigator={navigator} />;
+      return <DetailPage rowData={route.rowData} navigator={navigator} />;
     }
 
     return (
